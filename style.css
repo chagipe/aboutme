@@ -618,4 +618,65 @@ a {
     .carousel-slide {
         padding: 1.5rem;
     }
+
+    /* Estilos para el mensaje de éxito del formulario */
+.success-message {
+    display: none; /* Oculto por defecto */
+    text-align: center;
+    background-color: #4CAF50; /* Un verde amigable */
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 3rem; /* Espacio con el formulario */
+    opacity: 0; /* Para la animación de entrada */
+    transform: translateY(20px); /* Para la animación de entrada */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transición suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Para posicionar el check */
+    overflow: hidden; /* Asegura que nada se salga */
+}
+
+.success-message.show {
+    display: block; /* Mostrar cuando tenga la clase 'show' */
+    opacity: 1; /* Animación de entrada: aparece */
+    transform: translateY(0); /* Animación de entrada: sube a su posición */
+}
+
+.success-message p {
+    color: white; /* Asegura que el texto sea blanco */
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.success-message .check-icon {
+    font-size: 3rem; /* Tamaño grande para el icono de check */
+    color: #f0f0f0; /* Color del check */
+    margin-bottom: 1rem;
+    display: block; /* Para que ocupe su propia línea */
+    /* Animación del check */
+    animation: bounceIn 0.8s ease-out;
+}
+
+/* Animación para el icono de check */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 }
