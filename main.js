@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // === Carousel Functionality ===
     const carousel = document.querySelector('.carousel-container');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
@@ -7,48 +8,92 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
 
     function updateCarousel() {
-        if (slides.length === 0) return; // Evitar errores si no hay slides
+        if (slides.length === 0) return;
 
-        // Calcular el ancho de un slide, incluyendo el margen si lo hubiera (en este caso, 0)
-        // Ya que cada slide ocupa el 100% del contenedor visible
         const slideWidth = carousel.querySelector('.carousel-slide').offsetWidth +
-                           parseFloat(getComputedStyle(carousel.querySelector('.carousel-slide')).marginRight) +
-                           parseFloat(getComputedStyle(carousel.querySelector('.carousel-slide')).marginLeft);
+                            parseFloat(getComputedStyle(carousel.querySelector('.carousel-slide')).marginRight) +
+                            parseFloat(getComputedStyle(carousel.querySelector('.carousel-slide')).marginLeft);
 
         carousel.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
     }
 
-    // Funciones para los botones del carrusel
-    prevButton.addEventListener('click', () => {
-        currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
-        updateCarousel();
-    });
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+            updateCarousel();
+        });
 
-    nextButton.addEventListener('click', () => {
-        currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
-        updateCarousel();
-    });
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+            updateCarousel();
+        });
+    }
 
-    // Ajustar el carrusel al redimensionar la ventana para que los slides siempre encajen
     window.addEventListener('resize', updateCarousel);
-
-    // Inicializar el carrusel al cargar la página
     updateCarousel();
 
-    // --- Funcionalidad del menú de navegación móvil (opcional) ---
+    // === Mobile Menu Functionality ===
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Necesitarías añadir estilos para .nav-links.active en CSS
+            navLinks.classList.toggle('active');
         });
 
-        // Opcional: Cerrar menú si se hace clic fuera o en un enlace
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+    }
+
+    // === Contact Form Functionality ===
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    // Oculta el mensaje de éxito al cargar la página
+    if (successMessage) {
+        successMessage.classList.remove('show');
+    }
+
+    if (form && successMessage) {
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const url = form.action;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    
+                    // Muestra el mensaje de éxito y lo anima
+                    successMessage.classList.add('show');
+                    
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000); // 5 segundos
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        alert(data.errors.map(error => error.message).join(", "));
+                    } else {
+                        alert('Oops! Hubo un problema al enviar tu formulario.');
+                    }
+                }
+            } catch (error) {
+                console.error('Error al enviar el formulario:', error);
+                alert('Hubo un error de red. Intenta de nuevo.');
+            }
         });
     }
 });

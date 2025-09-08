@@ -48,10 +48,10 @@
         </section>
 
         <section id="about-me" class="about-section">
-            <div class="section-header">
-                <p class="sub-heading">QUIÉN SOY</p>
-                <h2>Sobre Mí & Mi Resumen</h2>
-            </div>
+        <div class="section-header">
+            <span class="sub-heading">Contacta Conmigo</span>
+            <h2>Envíame un Mensaje</h2>
+        </div>
             <div class="about-details">
                 <div class="detail-item">
                     <span>Edad:</span>
@@ -129,7 +129,7 @@
             <span class="sub-heading">Contacta Conmigo</span>
             <h2>Envíame un Mensaje</h2>
         </div>
-        <form id="contactForm" action="https://formspree.io/f/mdklybvw" method="POST">
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/mdklybvw" method="POST">
             <div class="form-group">
                 <input type="text" name="name" placeholder="Tu Nombre" required>
                 <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
@@ -138,9 +138,8 @@
             <textarea name="message" placeholder="Tu Mensaje" required></textarea>
             <button type="submit" class="btn-submit">Enviar Mensaje</button>
         </form>
-
         <div id="successMessage" class="success-message">
-            <i class="fas fa-check-circle check-icon"></i>
+            <span class="check-icon">&#10003;</span>
             <p>¡Formulario enviado con éxito! Te responderé pronto.</p>
         </div>
         </div>

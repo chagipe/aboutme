@@ -56,7 +56,9 @@ a {
     color: var(--accent-purple);
     font-size: 0.9rem;
     letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem; /* Ajuste para separar del h2 */
+    /* CAMBIO IMPORTANTE: Agrega esta línea para que se muestre en su propia línea */
+    display: block; 
 }
 
 .section-header h2 {
@@ -618,46 +620,53 @@ a {
     .carousel-slide {
         padding: 1.5rem;
     }
+}
 
-    /* Estilos para el mensaje de éxito del formulario */
+/* --- ESTILOS PARA EL MENSAJE DE ÉXITO --- */
+
+/* Oculta el mensaje por defecto */
 .success-message {
-    display: none; /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0.5s;
+    pointer-events: none; /* Asegura que no se pueda hacer clic cuando está oculto */
+
+    /* Propiedades de visualización */
     text-align: center;
-    background-color: #4CAF50; /* Un verde amigable */
+    background-color: #4CAF50;
     color: white;
     padding: 1.5rem;
     border-radius: 8px;
-    margin-top: 3rem; /* Espacio con el formulario */
-    opacity: 0; /* Para la animación de entrada */
-    transform: translateY(20px); /* Para la animación de entrada */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transición suave */
+    margin-top: 3rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    position: relative; /* Para posicionar el check */
-    overflow: hidden; /* Asegura que nada se salga */
+    position: relative;
+    overflow: hidden;
 }
 
+/* Muestra el mensaje con la clase .show */
 .success-message.show {
-    display: block; /* Mostrar cuando tenga la clase 'show' */
-    opacity: 1; /* Animación de entrada: aparece */
-    transform: translateY(0); /* Animación de entrada: sube a su posición */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto; /* Permite interacciones cuando está visible */
 }
 
 .success-message p {
-    color: white; /* Asegura que el texto sea blanco */
+    color: white;
     margin: 0;
     font-size: 1.1rem;
     font-weight: 500;
 }
 
 .success-message .check-icon {
-    font-size: 3rem; /* Tamaño grande para el icono de check */
-    color: #f0f0f0; /* Color del check */
+    font-size: 3rem;
+    color: #f0f0f0;
     margin-bottom: 1rem;
-    display: block; /* Para que ocupe su propia línea */
-    /* Animación del check */
+    display: block;
     animation: bounceIn 0.8s ease-out;
 }
 
@@ -678,5 +687,4 @@ a {
         transform: scale(1);
         opacity: 1;
     }
-}
 }
