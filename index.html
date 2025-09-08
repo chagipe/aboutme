@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Hiroshi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                Sobre mí.
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about-me">Sobre Mí</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <div class="header-actions">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <a href="SEBASTIAN_BEGAZO_CV.pdf" download class="btn-download-cv"><i class="fas fa-download"></i> Descargar CV</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-left">
+                <p class="greeting">HOLA, SOY</p>
+                <h1>Sebastian Hiroshi Begazo Kobayashi</h1>
+                <p class="tagline">Desarrollador de Software & Soporte Técnico Nivel 2</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> sebastianbegazo@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lima, Perú</p> </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/hiroshi.sebastian.7/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/shbk___/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/tunombredeusuario" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="hiroshi-profile.jpeg" alt="Foto de perfil de Hiroshi"> <div class="hero-design-element"></div>
+            </div>
+        </section>
+
+        <section id="about-me" class="about-section">
+            <div class="section-header">
+                <p class="sub-heading">QUIÉN SOY</p>
+                <h2>Sobre Mí & Mi Resumen</h2>
+            </div>
+            <div class="about-details">
+                <div class="detail-item">
+                    <span>Edad:</span>
+                    <span>24 años</span>
+                </div>
+                <div class="detail-item">
+                    <span>Nacimiento:</span>
+                    <span>23 de enero del 2001</span>
+                </div>
+                <div class="detail-item">
+                    <span>Residencia:</span>
+                    <span>Av Universitaria 7364 - Comas</span>
+                </div>
+                <div class="detail-item">
+                    <span>E-mail:</span>
+                    <span>sebastianbegazo@gmail.com</span>
+                </div>
+                <div class="detail-item">
+                    <span>Teléfono:</span>
+                    <span>994248626</span> </div>
+                <div class="detail-item">
+                    <span>Freelance:</span>
+                    <span>Disponible</span>
+                </div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>75%</h3>
+                    <p>Desarrollo Web</p>
+                </div>
+                <div class="skill-item">
+                    <h3>90%</h3>
+                    <p>Soporte Técnico</p>
+                </div>
+                <div class="skill-item">
+                    <h3>60%</h3>
+                    <p>Bases de Datos</p>
+                </div>
+                <div class="skill-item">
+                    <h3>70%</h3>
+                    <p>Resolución de Problemas</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="carousel-section">
+            <div class="section-header">
+                <p class="sub-heading">MI TRABAJO</p>
+                <h2>Mis Proyectos</h2>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="pixl.webp" alt="Proyecto 1">
+                    <h3>PIXL BOT</h3>
+                    <p>PIXL BOT es una herramienta para escuchar música en servidores de discord.<br>Cuenta con 4 opciones distintas que se diferencian por color.<br>Se utilizó JS para la tecnología del bot.</p>
+                </div>
+                <div class="carousel-slide">
+                    <img src="project2.jpg" alt="Proyecto 2">
+                    <h3>Nombre del Proyecto 2</h3>
+                    <p>Descripción breve del proyecto 2. Tecnologías usadas.</p>
+                </div>
+                <div class="carousel-slide">
+                    <img src="project3.jpg" alt="Proyecto 3">
+                    <h3>Nombre del Proyecto 3</h3>
+                    <p>Descripción breve del proyecto 3. Tecnologías usadas.</p>
+                </div>
+            </div>
+            <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+        </section>
+
+        <section id="contact" class="contact-form-section">
+            <div class="section-header">
+                <p class="sub-heading">CONTACTAME</p>
+                <h2>Hablemos de tu proyecto</h2>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Tu Nombre">
+                    <input type="email" placeholder="Tu Correo">
+                </div>
+                <input type="text" placeholder="Asunto">
+                <textarea placeholder="Tu Mensaje"></textarea>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Hiroshi. Todos los derechos reservados.</p>
+        <div class="social-links-footer">
+            <a href="https://www.facebook.com/hiroshi.sebastian.7/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/shbk___/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/tunombredeusuario" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
